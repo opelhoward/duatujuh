@@ -16,5 +16,4 @@ class CsvProductDbConnector:
 
     def sample_data(self, n):
         print 'Sampling data...'
-        random.seed(0)
-        return self.data.sample(n)
+        return self.data.sample(n, random_state=71)
