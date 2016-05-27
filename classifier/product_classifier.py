@@ -1,8 +1,10 @@
+import random
 from HTMLParser import HTMLParser
-
 from sklearn import svm
+from sklearn.cross_validation import train_test_split
 from sklearn.externals import joblib
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import classification_report, accuracy_score, f1_score, recall_score, precision_score
 
 
 class MLStripper(HTMLParser):
@@ -32,11 +34,13 @@ class ProductCategoryClassifier:
         self._cat_subcat_separator = ', sub:'
         self._string_cat_dict = None
 
-    def build_model_from_database(self, product_database):
-        data = product_database.sample_data(10000)
+    def build_model_from_data(self, product_data):
+        data = product_data.copy()
         print 'Replace NA values...'
         data.description = data.description.fillna('')
+        data.product_name = data.product_name.fillna('')
 
+        print 'Indexing categories...'
         self._initialize_string_cat_converter(data)
 
         print 'Create document term matrix...'
@@ -53,21 +57,54 @@ class ProductCategoryClassifier:
         self._model.fit(dtm, label)
 
     def classify(self, product_name, product_description):
+        print 'Replace missing value with empty string...'
+        product_description = [self._replace_none_with_value(x, '') for x in product_description]
+        product_name = [self._replace_none_with_value(x, '') for x in product_name]
+
+        print 'Building document term matrix...'
         dtm = self._count_vect.transform(product_description)
+
+        print 'Start predicting..'
         prediction = self._model.predict(dtm)
         return [self._category_string_tuple(x) for x in prediction]
 
     def save_model(self, model_path):
+        print 'Saving model...'
         persistent_dict = {'model': self._model, 'count_vect': self._count_vect}
         joblib.dump(persistent_dict, model_path)
+        print 'Saved.'
 
     def load_model(self, model_path):
+        print 'Loading model...'
         persistent_dict = joblib.load(model_path)
         self._model = persistent_dict['model']
         self._count_vect = persistent_dict['count_vect']
+        print 'Loaded.'
 
-    def performance_testing(self):
-        pass
+    def build_model_and_performance_testing(self, product_data):
+        random.seed(1)
+
+        label = [self._category_tuple_string((x, y)) for x, y in product_data[['category', 'subcategory']].values]
+        data_train, data_test = train_test_split(product_data, stratify=label, test_size=0.3)
+        self.build_model_from_data(data_train)
+
+        description = data_test.description.fillna('')
+        product_name = data_test.product_name.fillna('')
+
+        print 'Start classify for testing'
+        y_pred = self.classify(product_name, description)
+        y_pred = [self._category_tuple_string(x) for x in y_pred]
+        y_true = [self._category_tuple_string(tuple(x)) for x in data_test[['category', 'subcategory']].values]
+        print '############# TEST RESULT #############'
+        print 'Accuracy Score'
+        print accuracy_score(y_true=y_true, y_pred=y_pred)
+        print 'F1 Score'
+        print f1_score(y_true=y_true, y_pred=y_pred, average='macro')
+        print 'Precision Score'
+        print precision_score(y_true=y_true, y_pred=y_pred, average='macro')
+        print 'Recall Score'
+        print recall_score(y_true=y_true, y_pred=y_pred, average='macro')
+        print '#######################################'
 
     def _initialize_string_cat_converter(self, data):
         full_category = data[['category', 'subcategory']]
@@ -81,6 +118,13 @@ class ProductCategoryClassifier:
 
     def _category_string_tuple(self, category_string):
         return self._string_cat_dict[category_string]
+
+    @staticmethod
+    def _replace_none_with_value(value, value_if_none):
+        if value is None:
+            return value_if_none
+        else:
+            return value
 
 
 
