@@ -1,27 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+from controllers import routes
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/pasang-iklan')
-def add_ads():
-    return render_template('add-ads.html')
-
-
-@app.route('/daftar-produk')
-def list_products():
-    return render_template('product-list.html')
-
-
-@app.route('/deskripsiProduk')
-def get_product_desc():
-    return render_template('product-desc.html')
-
+db = SQLAlchemy()
 
 if __name__ == '__main__':
+    db.init_app(app)
+    app.register_blueprint(routes.app)
     app.run(debug=True)
