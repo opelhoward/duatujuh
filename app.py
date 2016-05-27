@@ -4,20 +4,23 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return render_template('index.html', a=1)
+def index():
+    return render_template('index.html')
 
-@app.route('/pasangIklan')
-def pasangIklan():
-    return render_template('pasangIklan.html', a=1)
 
-@app.route('/produkList')
-def produkList():
-    return render_template('produkList.html', a=1)
+@app.route('/pasang-iklan')
+def add_ads():
+    return render_template('add-ads.html')
+
+
+@app.route('/daftar-produk')
+def list_products():
+    return render_template('product-list.html')
+
 
 @app.route('/deskripsiProduk')
-def deskripsiProduk():
-    return render_template('deskripsiProduk.html', a=1)
+def get_product_desc():
+    return render_template('product-desc.html')
 
 
 if __name__ == '__main__':
