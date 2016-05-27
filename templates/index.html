@@ -16,7 +16,7 @@
     <!-- /.container -->
     <div class="col-xs-12 text-center abcen wow fadeIn">
         <div class="button_down ">
-            <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s" href="#whatis">
+            <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s" href="#Produk">
                 <img class="img_scroll" src="{{ url_for("static", filename="img/icon/circle.png") }}" alt="">
             </a>
         </div>
@@ -34,15 +34,16 @@
 
         <div class="row">
             <div class="col-sm-12 wow fadeInDown text-center">
-
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <a href="/produkList">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Mobil" name="Mobil">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/large-car.png") }}"
                          alt="Generic placeholder image" style="width:65%">
                     <h3>Mobil</h3>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
+                </a>
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Motor" name="Motor">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/motorcycle.png") }}"
                          alt="Generic placeholder image"
                          style="width:65%">
@@ -50,7 +51,7 @@
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Properti" name="Properti">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/building.png") }}"
                          alt="Generic placeholder image"
                          style="width:65%">
@@ -58,7 +59,7 @@
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Keperluan Pribadi" name="Keperluan Pribadi">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/heels.png") }}"
                          alt="Generic placeholder image"
                          style="width:65%">
@@ -66,14 +67,14 @@
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Elektronik & Gadget" name="Elektronik & Gadget">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/laptop.svg") }}"
                          alt="Generic placeholder image">
                     <h3>Elektronik & Gadget</h3>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Hobi & Olahraga" name="Hobi & Olahraga">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/football.svg") }}"
                          alt="Generic placeholder image">
                     <h3>Hobi & Olahraga</h3>
@@ -87,7 +88,7 @@
 
             <div class="col-sm-12 wow fadeInDown text-center">
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Rumah Tangga" name="Rumah Tangga">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/chair.svg") }}"
                          alt="Generic placeholder image">
                     <h3>Rumah Tangga</h3>
@@ -95,7 +96,7 @@
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Perlengkapan Bayi & Anak" name="Perlengkapan Bayi & Anak">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/stroller.png") }}"
                          alt="Generic placeholder image"
                          style="width:65%">
@@ -103,14 +104,14 @@
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Kantor & Industri" name="Kantor & Industri">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/clipboard.svg") }}"
                          alt="Generic placeholder image">
                     <h3>Kantor & Industri</h3>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Jasa & Lowongan Kerja" name="Jasa & Lowongan Kerja">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/worker.ico") }}"
                          alt="Generic placeholder image"
                          style="width:65%">
@@ -118,186 +119,24 @@
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Sci-fi" name="Sci-fi">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/gift-box.svg") }}"
                          alt="Generic placeholder image">
                     <h3>Sci-fi</h3>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
-                <div class="col-sm-2 wow fadeInDown text-center">
+                <div class="col-sm-2 wow fadeInDown text-center" id="Pasar Otobursa" name="Pasar Otobursa">
                     <img class="rotate" src="{{ url_for("static", filename="img/icon/carnaval.png") }}"
                          alt="Generic placeholder image"
                          style="width:65%">
-                    <h3>Pasar OLX Otobursa</h3>
+                    <h3>Pasar Otobursa</h3>
                     <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
                 </div><!-- /.col-lg-4 -->
 
             </div><!-- /.div 12 col -->
 
         </div><!-- /.row -->
-    </div>
-</div>
-<!-- Use it -->
-
-<!-- Contact -->
-<div id="contact" class="content-section-a">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-6 col-md-offset-3 text-center wrap_title">
-                <h3>Pasang Iklan</h3>
-                <p class="lead" style="margin-top:0">Pasang iklan anda disini.</p>
-            </div>
-
-            <form role="form" action="" method="post">
-                <div class="col-md-10 col-md-offset-1 text-center wrap_title">
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputName">Judul Iklan</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="Judul" id="Judul"
-                                           placeholder="Judul iklan" required>
-                                    <span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputName">Kategori</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="Kategori" id="Kategori"
-                                           placeholder="Kategori" required>
-                                    <span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputMessage">Deksripsi Iklan</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <textarea name="Deksripsi" id="Deksripsi" class="form-control" rows="5"
-                                              required></textarea>
-                                    <span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputName">Provinsi</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <select class="selectpicker">
-                                        <option>DKI Jakarta</option>
-                                        <option>Jawa Barat</option>
-                                        <option>Jawa Tengah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputName">Kota</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <select class="selectpicker">
-                                        <option>Bandung</option>
-                                        <option>Jakarta</option>
-                                        <option>Yogyakarta</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputName">Nama</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="Nama" id="Nama" placeholder="Nama"
-                                           required>
-                                    <span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputEmail">Email</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <input type="email" class="form-control" id="Email" name="Email"
-                                           placeholder="Enter Email" required>
-                                    <span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-2">
-                                <label for="InputName">No Telepon/HP</label>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="Telepon" id="Telepon"
-                                           placeholder="No Telepon" required>
-                                    <span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    <input type="submit" name="submit" id="submit" value="Submit"
-                           class="btn wow tada btn-embossed btn-primary pull-right">
-                </div>
-            </form>
-
-        </div>
     </div>
 </div>
 

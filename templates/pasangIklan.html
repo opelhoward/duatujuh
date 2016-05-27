@@ -1,0 +1,147 @@
+{% include 'header.html' %}
+<body id="home">
+{% include 'navbar.html' %}
+
+<!-- Contact -->
+	<div id="contact" class="container">
+		<div class="container">
+			<div class="row">
+			
+			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<h3>Pasang Iklan</h3>
+				<p class="lead" style="margin-top:0">Pasang iklan anda disini.</p>
+			</div>
+			
+			<form role="form" action="" method="post" >
+				<div class="col-md-10 col-md-offset-1 text-center wrap_title">
+					
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Judul Iklan</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Judul" id="Judul" placeholder="Judul iklan" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Kategori</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Kategori" id="Kategori" placeholder="Kategori" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputMessage">Deksripsi Iklan</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<textarea name="Deksripsi" id="Deksripsi" class="form-control" rows="5" required></textarea>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Provinsi</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+										<select class="selectpicker">
+										  <option>DKI Jakarta</option>
+										  <option>Jawa Barat</option>
+										  <option>Jawa Tengah</option>
+										</select>
+							</div>
+							</div>
+						</div>
+					</div><br> 
+
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Kota</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+										<select class="selectpicker">
+										  <option>Bandung</option>
+										  <option>Jakarta</option>
+										  <option>Yogyakarta</option>
+										</select>
+								</div>
+							</div>
+						</div>
+					</div><br> 
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Nama</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Nama" id="Nama" placeholder="Nama" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputEmail">Email</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Email" required  >
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">No Telepon/HP</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Telepon" id="Telepon" placeholder="No Telepon" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<input type="submit" name="submit" id="submit" value="Submit" class="btn wow tada btn-embossed btn-primary pull-right">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% include 'footer.html' %}
+</body>
+
+</html>
