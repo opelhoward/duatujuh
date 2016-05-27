@@ -1,0 +1,44 @@
+{% include 'header.html' %}
+<body id="home">
+{% include 'navbar.html' %}
+
+<!-- Admin page -->
+	<div id="contact" class="intro-header">
+		<div class="container">
+			<div class="row">
+			
+			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<h2>Admin Page</h2>
+			</div>
+			
+			<form role="form" action="" method="post" >
+				<div class="col-md-10 col-md-offset-1 text-center wrap_title">
+					<img  src="{{ url_for("static", filename="img/icon/config.svg") }}"
+                         alt="Generic placeholder image" style="width: 30%">
+
+					<div class="row">
+                        <br>
+						<div class="form-group">
+							<div class="col-md-2">
+								<h4 for="InputName">Scraping URL</h4>
+							</div>
+							<div class="col-md-10">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Scraping" id="Scraping" placeholder="URL" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                                    <input type="submit" name="submit" id="submit" value="Scrape" class="btn wow tada btn-embossed btn-primary pull-right">
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
