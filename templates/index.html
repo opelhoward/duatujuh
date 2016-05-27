@@ -1,11 +1,338 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for("static", filename="css/app.css") }}">
-    <title>Title</title>
-</head>
+{% include 'header.html' %}
 <body>
-    {% extends 'footer.html' %}
+{% include 'navbar.html' %}
+
+
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+
+	<!-- FullScreen -->
+    <div class="intro-header">
+		<div class="col-xs-12 text-center abcen1">
+			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">Flatfy</h1>
+			<h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Simple e-Commerce</h3>
+		</div>
+        <!-- /.container -->
+		<div class="col-xs-12 text-center abcen wow fadeIn">
+			<div class="button_down ">
+				<a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img class="img_scroll" src="img/icon/circle.png" alt=""> </a>
+			</div>
+		</div>
+    </div>
+
+
+
+	<!-- What is -->
+	<div id="whatis" class="content-section-b" >
+		<div class="container">
+
+			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<h2>Produk</h2>
+				<p class="lead" style="margin-top:0">Kategori produk.</p>
+
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 wow fadeInDown text-center">
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img class="rotate" src="img/icon/large-car.png" alt="Generic placeholder image" style="width:65%">
+					  <h3>Mobil</h3>
+
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img class="rotate" src="img/icon/motorcycle.png" alt="Generic placeholder image" style="width:65%">
+					   <h3>Motor</h3>
+					   <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img class="rotate" src="img/icon/building.png" alt="Generic placeholder image" style="width:65%">
+					   <h3>Properti</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img  class="rotate" src="img/icon/heels.png" alt="Generic placeholder image" style="width:65%">
+					   <h3>Keperluan Pribadi</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img  class="rotate" src="img/icon/laptop.svg" alt="Generic placeholder image">
+					   <h3>Elektronik & Gadget</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img  class="rotate" src="img/icon/football.svg" alt="Generic placeholder image">
+					   <h3>Hobi & Olahraga</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+				</div><!-- /.div 12 col -->
+			</div><!-- /.row -->
+
+			<div class="row tworow">
+
+				<div class="col-sm-12 wow fadeInDown text-center">
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img class="rotate" src="img/icon/chair.svg" alt="Generic placeholder image">
+					  <h3>Rumah Tangga</h3>
+
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img class="rotate" src="img/icon/stroller.png" alt="Generic placeholder image" style="width:65%">
+					   <h3>Perlengkapan Bayi & Anak</h3>
+					   <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img  class="rotate" src="img/icon/clipboard.svg" alt="Generic placeholder image">
+					   <h3>Kantor & Industri</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img  class="rotate" src="img/icon/worker.ico" alt="Generic placeholder image" style="width:65%">
+					   <h3>Jasa & Lowongan Kerja</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img  class="rotate" src="img/icon/gift-box.svg" alt="Generic placeholder image">
+					   <h3>Sci-fi</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+					<div class="col-sm-2 wow fadeInDown text-center">
+					  <img class="rotate" src="img/icon/carnaval.png" alt="Generic placeholder image" style="width:65%">
+					   <h3>Pasar OLX Otobursa</h3>
+					  <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+					</div><!-- /.col-lg-4 -->
+
+				</div><!-- /.div 12 col -->
+
+			</div><!-- /.row -->
+		</div>
+	</div>
+	<!-- Use it -->
+
+	<!-- Contact -->
+	<div id="contact" class="content-section-a">
+		<div class="container">
+			<div class="row">
+
+			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<h3>Pasang Iklan</h3>
+				<p class="lead" style="margin-top:0">Pasang iklan anda disini.</p>
+			</div>
+
+			<form role="form" action="" method="post" >
+				<div class="col-md-10 col-md-offset-1 text-center wrap_title">
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Judul Iklan</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Judul" id="Judul" placeholder="Judul iklan" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Kategori</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Kategori" id="Kategori" placeholder="Kategori" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputMessage">Deksripsi Iklan</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<textarea name="Deksripsi" id="Deksripsi" class="form-control" rows="5" required></textarea>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Provinsi</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+										<select class="selectpicker">
+										  <option>DKI Jakarta</option>
+										  <option>Jawa Barat</option>
+										  <option>Jawa Tengah</option>
+										</select>
+							</div>
+							</div>
+						</div>
+					</div><br>
+
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Kota</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+										<select class="selectpicker">
+										  <option>Bandung</option>
+										  <option>Jakarta</option>
+										  <option>Yogyakarta</option>
+										</select>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">Nama</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control" name="Nama" id="Nama" placeholder="Nama" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputEmail">Email</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Email" required  >
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-2">
+								<label for="InputName">No Telepon/HP</label>
+							</div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="number" class="form-control" name="Telepon" id="Telepon" placeholder="No Telepon" required>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+						</div>
+					</div><br>
+
+					<input type="submit" name="submit" id="submit" value="Submit" class="btn wow tada btn-embossed btn-primary pull-right">
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h3 class="footer-title">Follow Me!</h3>
+            <p>Vuoi ricevere news su altri template?<br/>
+              Visita Andrea Galanti.it e vedrai tutte le news riguardanti nuovi Theme!<br/>
+              Go to: <a  href="http://andreagalanti.it" target="_blank">andreagalanti.it</a>
+            </p>
+
+			<!-- LICENSE -->
+			<a rel="cc:attributionURL" href="http://www.andreagalanti.it/flatfy"
+		   property="dc:title">Flatfy Theme </a> by
+		   <a rel="dc:creator" href="http://www.andreagalanti.it"
+		   property="cc:attributionName">Andrea Galanti</a>
+		   is licensed to the public under
+		   <BR>the <a rel="license"
+		   href="http://creativecommons.org/licenses/by-nc/3.0/it/deed.it">Creative
+		   Commons Attribution 3.0 License - NOT COMMERCIAL</a>.
+
+
+          </div> <!-- /col-xs-7 -->
+
+          <div class="col-md-5">
+            <div class="footer-banner">
+              <h3 class="footer-title">Flatfy Theme</h3>
+              <ul>
+                <li>12 Column Grid Bootstrap</li>
+                <li>Form Contact</li>
+                <li>Drag Gallery</li>
+                <li>Full Responsive</li>
+                <li>Lorem Ipsum</li>
+              </ul>
+              Go to: <a href="http://andreagalanti.it/flatfy" target="_blank">andreagalanti.it/flatfy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/script.js"></script>
+	<!-- StikyMenu -->
+	<script src="js/stickUp.min.js"></script>
+	<script type="text/javascript">
+	  jQuery(function($) {
+		$(document).ready( function() {
+		  $('.navbar-default').stickUp();
+
+		});
+	  });
+
+	</script>
+	<!-- Smoothscroll -->
+	<script type="text/javascript" src="js/jquery.corner.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<script src="js/classie.js"></script>
+	<script src="js/uiMorphingButton_inflow.js"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="js/jquery.magnific-popup.js"></script>
+
+{% include 'footer.html' %}
 </body>
 </html>
