@@ -32,7 +32,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-12 wow fadeInDown text-center">
+            <div class="col-md-offset-1 col-md-12 wow fadeInDown text-center">
                 <a href="{{ url_for("routes.list_products", category_name="Mobil") }}">
                     <div class="col-sm-2 wow fadeInDown text-center" id="Mobil" name="Mobil">
                         <img class="rotate" src="{{ url_for("static", filename="img/icon/large-car.png") }}"
@@ -71,6 +71,12 @@
                         <h3>Elektronik & Gadget</h3>
                     </div>
                 </a>
+            </div><!-- /.div 12 col -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-offset-1 col-sm-12 wow fadeInDown text-center">
+
                 <a href="{{ url_for("routes.list_products", category_name="Hobi & Olahraga") }}">
                     <div class="col-sm-2 wow fadeInDown text-center" id="Hobi&Olahraga" name="Hobi & Olahraga">
                         <img class="rotate" src="{{ url_for("static", filename="img/icon/football.svg") }}"
@@ -78,11 +84,7 @@
                         <h3>Hobi & Olahraga</h3>
                     </div>
                 </a>
-            </div><!-- /.div 12 col -->
-        </div><!-- /.row -->
 
-        <div class="row tworow">
-            <div class="col-sm-12 wow fadeInDown text-center">
                 <a href="{{ url_for("routes.list_products", category_name="Rumah Tangga") }}">
                     <div class="col-sm-2 wow fadeInDown text-center" id="RumahTangga" name="Rumah Tangga">
                         <img class="rotate" src="{{ url_for("static", filename="img/icon/chair.svg") }}"
@@ -115,24 +117,6 @@
                              alt="Generic placeholder image"
                              style="width:65%">
                         <h3>Jasa & Lowongan Kerja</h3>
-                    </div>
-                </a>
-                <a href="{{ url_for("routes.list_products", category_name="Sci-fi") }}">
-                    <div class="col-sm-2 wow fadeInDown text-center" id="Sci-fi" name="Sci-fi">
-                        <img class="rotate"
-                             src="{{ url_for("static", filename="img/icon/gift-box.svg") }}"
-                             alt="Generic placeholder image">
-                        <h3>Sci-fi</h3>
-                    </div>
-                </a>
-                <a href="{{ url_for("routes.list_products", category_name="Pasar Otobursa") }}">
-                    <div class="col-sm-2 wow fadeInDown text-center" id="PasarOtobursa"
-                         name="Pasar Otobursa">
-                        <img class="rotate"
-                             src="{{ url_for("static", filename="img/icon/carnaval.png") }}"
-                             alt="Generic placeholder image"
-                             style="width:65%">
-                        <h3>Pasar Otobursa</h3>
                     </div>
                 </a>
             </div><!-- /.div 12 col -->
