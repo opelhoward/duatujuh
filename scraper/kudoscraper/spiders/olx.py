@@ -2,7 +2,7 @@ from scrapy import Request
 from scrapy.selector import Selector
 from scrapy.spiders import Spider
 
-from kudoscraper.items import ProductItem
+from scraper.kudoscraper.items import ProductItem
 
 
 class OlxSpider(Spider):
@@ -42,13 +42,13 @@ class OlxSpider(Spider):
         num_pages = sel.xpath(
             '//div[@class="pager rel clr"]/span[@class="item fleft" and position() = (last()-1)]//span/text()').extract_first()
         query_page_format = '?page=%d'
-        for page_num in xrange(2, int(num_pages)):
-            yield Request(response.url + (query_page_format % page_num), meta={
-                'category': response.meta['category'],
-                'subcategory': response.meta['subcategory']
-            },
-                          callback=self.get_products)
-        yield self.get_products(response)
+        # for page_num in xrange(2, int(num_pages)):
+        #     yield Request(response.url + (query_page_format % page_num), meta={
+        #         'category': response.meta['category'],
+        #         'subcategory': response.meta['subcategory']
+        #     },
+        #                   callback=self.get_products)
+        return self.get_products(response)
 
     def get_products(self, response):
         sel = Selector(response)

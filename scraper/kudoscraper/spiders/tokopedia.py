@@ -54,7 +54,7 @@ class TokopediaSpider(Spider):
         response_json = json.loads(response.body_as_unicode())
         for page_idx in xrange(1, int(math.ceil(response_json['header']['total_data'] / float(24)))):
             url = self.url_format % (response.meta['id'], (page_idx - 1) * 24)
-            yield Request(url, callback=self.get_products, meta={
+            return Request(url, callback=self.get_products, meta={
                 'category': response.meta['category']
             }, dont_filter=True)
 
