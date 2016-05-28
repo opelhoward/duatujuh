@@ -13,13 +13,13 @@ def add_ads():
     return render_template("add-ads.html")
 
 
-@app.route("/<category_name>")
-def list_products(category_name):
+@app.route("/productList")
+def list_products():
     return render_template("product-list.html")
 
 
-@app.route("/product/<product_id>")
-def get_product_desc(product_id):
+@app.route("/product")
+def get_product_desc():
     return render_template("product-desc.html")
 
 
