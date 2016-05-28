@@ -4,7 +4,7 @@ from scrapy import Request
 from scrapy.selector import Selector
 from scrapy.spiders import Spider
 
-from kudoscraper.items import ProductItem
+from scraper.kudoscraper.items import ProductItem
 
 
 class TokopediaSpider(Spider):
@@ -31,7 +31,7 @@ class TokopediaSpider(Spider):
         query_page_format = "?page=%d"
         for page_num in xrange(number_of_page):
             url = response.url + (query_page_format % page_num)
-            yield Request(url, callback=self.get_products)
+            return Request(url, callback=self.get_products)
 
     def get_products(self, response):
         sel = Selector(response)
