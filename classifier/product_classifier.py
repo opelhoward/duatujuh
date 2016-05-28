@@ -1,6 +1,8 @@
 import numpy as np
 import re
 from HTMLParser import HTMLParser
+
+import time
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
 from sklearn.ensemble import ExtraTreesClassifier
@@ -40,6 +42,8 @@ class ProductCategoryClassifier:
         self._gateway = JavaGateway()
 
     def build_model_from_data(self, product_data):
+        t0 = time.time()
+
         data = product_data.copy()
         print 'Replace NA values...'
         data.description = data.description.fillna('')
@@ -60,28 +64,26 @@ class ProductCategoryClassifier:
         self._initialize_string_cat_converter(data)
 
         label = [self._category_tuple_string((x, y)) for x, y in data[['category', 'subcategory']].values]
-        product_text = [x+'. '+y for x, y in zip(data.product_name, data.description)]
-
-        print 'Get vocab'
-        vocab = self.__feature_selection(product_text, label)
-        print 'Used Vocab: ' + str(vocab.size)
 
         print 'Create document term matrix...'
         self._count_vect = TfidfVectorizer(ngram_range=(1, 2),
                                            max_features=None,
-                                           vocabulary=vocab,
+                                           vocabulary=None,
                                            binary=False,
-                                           min_df=2,
+                                           min_df=5,
                                            max_df=0.1,
                                            sublinear_tf=True)
         dtm = self._count_vect.fit_transform(data.description)
+        print 'DTM size ' + str(dtm.get_shape())
 
         print 'Create model...'
         self._model = svm.LinearSVC(C=0.5,
                                     class_weight='balanced',
                                     random_state=71,
-                                    dual=False)
+                                    dual=True)
         self._model.fit(dtm, label)
+        t1 = time.time()
+        print 'Model created in ' + str(t1-t0)
 
     def classify(self, product_name_description_tupple):
         print 'Replace missing value with empty string...'
@@ -170,6 +172,7 @@ class ProductCategoryClassifier:
                                            max_df=0.1,
                                            sublinear_tf=True)
         dtm = count_vectorizer.fit_transform(product_text)
+        print 'DTM size ' + str(dtm.get_shape())
 
         clf = ExtraTreesClassifier(n_estimators=50, random_state=71)
         clf = clf.fit(dtm, target)
