@@ -44,7 +44,14 @@ def list_products(category_name):
 
 @app.route("/product/<product_id>")
 def get_product_desc(product_id):
-    return render_template("product-desc.html")
+    product = Product.query.get_or_404(product_id)
+
+    view_path_file = None
+    if product.company is "MyCompany":
+        view_path_file = "product-desc.html"
+    else:
+        view_path_file = "ecommerce-desc.html"
+    return render_template(view_path_file, product=product)
 
 
 @app.route('/admin')
