@@ -7,6 +7,8 @@ if __name__ == "__main__":
     product_classifier = ProductCategoryClassifier()
     product_classifier.build_model_and_performance_testing(db.sample_data(10000))
     # product_classifier.build_model_from_data(db.sample_data(10000))
-    product_description = ['Anting anting untuk perempuan', 'Ban bekas serap goodyear', 'handphone xiomi redmi 3 pro']
-    prediction = product_classifier.classify([], product_description)
+    product_text = [('Anting anting untuk perempuan', 'Aksesoris ini dapat membuat anda tampil lebih cantik'),
+                    ('Ban bekas serap goodyear', 'ban ini sangat awet dan tahan lama'),
+                    ('handphone xiomi redmi 3 pro', 'ram 3gb dan rom 9gb')]
+    prediction = product_classifier.classify(product_text)
     print prediction
