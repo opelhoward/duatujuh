@@ -5,7 +5,7 @@ import random
 import numpy
 from flask import Blueprint, render_template, request, session
 
-from classifier.product_classifier import ProductCategoryClassifier
+from classifier.product_classifier import ProductCategoryClassifier, strip_tags
 from models import db
 from models.productmodel import Product
 
@@ -48,10 +48,15 @@ NUMBER_OF_ITEMS_IN_PAGE = 24
 
 
 @app.route("/category/<category_name>")
-def list_products(category_name):
+def list_products_by_category(category_name):
     page_number = request.args.get('page')
     if page_number is None:
         page_number = 1
+    subcategories = Product.query \
+        .with_entities(Product.subcategory) \
+        .filter_by(category=" " + category_name) \
+        .distinct() \
+        .all()
     products_pagination = Product.query \
         .filter_by(category=" " + category_name) \
         .paginate(page_number, NUMBER_OF_ITEMS_IN_PAGE)
@@ -62,6 +67,38 @@ def list_products(category_name):
     pagination_end = min(number_of_pages, pagination_start + 6)
     return render_template("product-list.html",
                            category=category_name,
+                           subcategories=subcategories,
+                           products=products,
+                           number_of_pages=number_of_pages,
+                           curr_page_num=page_number,
+                           pagination_start=pagination_start,
+                           pagination_end=pagination_end
+                           )
+
+
+@app.route("/category/<category_name>/subcategory/<subcategory_name>")
+def list_products_by_subcategory(category_name, subcategory_name):
+    page_number = request.args.get('page')
+    if page_number is None:
+        page_number = 1
+    else:
+        page_number = int(page_number)
+    subcategories = Product.query \
+        .with_entities(Product.subcategory) \
+        .filter_by(category=" " + category_name) \
+        .distinct() \
+        .all()
+    products_pagination = Product.query \
+        .filter_by(category=" " + category_name, subcategory=subcategory_name) \
+        .paginate(page_number, NUMBER_OF_ITEMS_IN_PAGE)
+    products = products_pagination.items
+    number_of_products = products_pagination.total
+    number_of_pages = int(math.ceil(number_of_products / NUMBER_OF_ITEMS_IN_PAGE))
+    pagination_start = max(page_number - 3, 1)
+    pagination_end = min(number_of_pages, pagination_start + 6)
+    return render_template("product-list.html",
+                           category=category_name,
+                           subcategories=subcategories,
                            products=products,
                            number_of_pages=number_of_pages,
                            curr_page_num=page_number,
@@ -73,13 +110,8 @@ def list_products(category_name):
 @app.route("/product/<product_id>")
 def get_product_desc(product_id):
     product = Product.query.get_or_404(product_id)
-
-    view_path_file = None
-    if product.company is "MyCompany":
-        view_path_file = "product-desc.html"
-    else:
-        view_path_file = "ecommerce-desc.html"
-    return render_template(view_path_file, product=product)
+    product.description = strip_tags(product.description)
+    return render_template("product-desc.html", product=product)
 
 
 @app.route('/admin')

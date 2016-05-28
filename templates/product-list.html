@@ -7,24 +7,24 @@
 
 <div class="container jumbotron">
     <div class="col-md-12">
-            <div class="col-md-2 wrap_title">
-                <h3>{{ category }}</h3>
-            </div>
-            <div></div>
-            <div class="col-md-10 wrap_title">
-                {% for product in products %}
-                <a href="#">
+        <div class="col-md-2 wrap_title">
+            <h3>{{ category }}</h3>
+        </div>
+        <div></div>
+        <div class="col-md-10 wrap_title">
+            {% for subcategory in subcategories %}
+                <a href="{{ url_for("routes.list_products_by_subcategory", category_name=category, subcategory_name=subcategory[0]) }}">
                     <div class="col-md-3" style="width: 275px;height: 35px;color: midnightblue;">
-                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> {{ product.subcategory }}
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                        {{ subcategory[0] }}
                     </div>
                 </a>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
     </div>
+</div>
 <hr>
-<!-- productList -->
-<div id="productList" class="container">
+<div id="product-list" class="container">
     <div class="col-md-12">
         {% for product in products %}
             <a href="{{ url_for("routes.get_product_desc", product_id=product.id) }}">
@@ -32,10 +32,7 @@
                     <div class="thumbnail col-md-12" style="width: 248px;height: 350px">
                         <img src="{{ product.image_link }}" alt="..." style="width:500px;height: 170px;border: solid;">
                         <div class="caption">
-                            <img class="img-responsive"
-                                 src="https://ecs7.tokopedia.net/img/microsite-brand-resource/hires-toped-tokopedia-mascot-new.png"
-                                 alt="Generic placeholder image"
-                                 style="width:40px;height:40px; border: thin">
+                            <img class="img-responsive logo {{ product.company }}">
                             <h5>{{ product.product_name }}</h5>
                             <p><h6>{{ product.subcategory }}</h6>
                             <h6>{{ product.price }}</h6></p>
@@ -48,30 +45,30 @@
         <div class="col-md-12 text-center">
             <div class="col-md-12">
                 <div class="row"> <!--pagination -->
-                <ul class="pagination">
-                    {% if curr_page_num != 1 %}
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% for page_number in range(pagination_start, pagination_end) %}
-                        <li><a href="#">{{ page_number }}</a></li>
-                    {% endfor %}
-                    {% if curr_page_num != number_of_pages %}
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-             </div>
+                    <ul class="pagination">
+                        {% if curr_page_num != 1 %}
+                            <li>
+                                <a href="{{ request.path }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for page_number in range(pagination_start, pagination_end) %}
+                            <li><a href="{{ request.path }}?page={{ page_number }}">{{ page_number }}</a></li>
+                        {% endfor %}
+                        {% if curr_page_num != number_of_pages %}
+                            <li>
+                                <a href="{{ request.path }}?page={{ number_of_pages }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div> <!--tampilan list produk -->
+</div>
 
 {% include 'footer.html' %}
 </body>

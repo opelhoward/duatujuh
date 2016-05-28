@@ -2,53 +2,41 @@
 
 <body id="home">
 {% include 'navbar.html' %}
+<br>
 
-
-	<br>
-	<!-- deskripsiProduk -->
-	<div id="deskripsiProduk" class="container" >
-			<div class="col-md-offset-1 row">
-				<div class=" row  col-md-10 alert alert-success">
-					<div class="row col-md-offset-1">
-						<div class="col-md-7"><h3>Nama Produk</h3></div>
-						<div class="col-md-offset-1 col-md-3 text-center"><div class="alert alert-danger"><h4>Rp. 80.000.000</h4></div></div>
-					</div>
-					<div class="row col-md-10 col-md-offset-1 alert alert-warning">
-							<div class="col-md-5"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Jakarta, DKI Jakarta</div>
-							<div class="col-md-5"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>087887401321</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-offset-1 row">
-				<div class=" row  col-md-10 jumbotron">
-					<div class="col-md-6"><img src="http://www.pusat-mobil.net/wp-content/uploads/3221/P1080414%20(Small).jpg" alt="..." style="width: 320px;height: 210px;border: solid"></div>
-					<div class="col-md-5"><h3>Deskripsi Produk</h3>
-                        <h6>
-                        Jual mobil kesayangan nih Xtrail 2009 AT triptonic 2000cc Irit.. Km 59rb'an on going. Asli no tipu2.
-                        Rawatan Nissan dan Jasmin (nissan lover's pasti tau kredibilitasnya).AC duinginnn...Mesin kering kerontang..
-                        Warna silver,Kaki2 ok matic baru ganti, ban 85%.Audio touch screen dengan head rest monitor untuk yang di belakang.
-                        Kaca FILM 3M Crystaline, ademmmm...Semua normal, Minus lecet dikit di pintu bawah kiri.Pajak hidup, Bintaro.Lokasi mobil seputar BSD
-                        </h6>
+<div id="deskripsi-produk" class="container">
+    <div class="col-md-offset-1 row">
+        <div class=" row  col-md-10 alert alert-success">
+            <div class="row col-md-offset-1">
+                <div class="col-md-7"><h3>{{ product.product_name }}</h3></div>
+                <div class="col-md-offset-1 col-md-3 text-center">
+                    <div class="alert alert-danger"><h4>{{ product.price }}</h4></div>
+                </div>
+                <div class="row col-md-10 col-md-offset-1 alert alert-warning">
+                    <div class="col-md-5"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        {{ product.name }}
                     </div>
-				</div>
-			</div>
-			<!-- <div class="col-md-7 col-md-offset-1 text-left wrap_title jumbotron" style="">
-					<div class="row">
-						<h3>Nama Produk</h3>
-					</div>
-					<div class="row alert alert-warning">
-						<div class="col-md-4">Jakarta, DKI Jakarta</div>
-						<div class="col-md-2">087887401321</div>
-					</div>
-					<div class="row">
-						<img src="https://www.enterprise.com/content/dam/global-vehicle-images/cars/FORD_FOCU_2012-1.png" alt="..." width="70%">
-					</div>
-			</div>
-			<div class="col-md-3 text-center wrap_title row alert alert-success">
-					<div class="alert alert-danger"><h4>Rp. 80.000.000</h4></div>
-			</div>		 -->
-	</div>
-
+                    <div class="col-md-5"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                        {{ product.phone_number }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-offset-1 row">
+        <div class=" row  col-md-10 jumbotron">
+            <div class="col-md-6">
+                <img src="{{ product.image_link }}" alt="..." style="width: 320px;height: 210px;border: solid">
+            </div>
+            <div class="col-md-5">
+                <h3>Deskripsi Produk</h3>
+                <h6>
+                    {{ product.description|safe }}
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% include 'footer.html' %}
 </body>
