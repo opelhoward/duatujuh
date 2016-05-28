@@ -1,4 +1,5 @@
 import numpy as np
+import re
 from HTMLParser import HTMLParser
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
@@ -7,6 +8,7 @@ from sklearn.externals import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectFromModel
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
+from py4j.java_gateway import JavaGateway
 
 
 class MLStripper(HTMLParser):
@@ -35,6 +37,7 @@ class ProductCategoryClassifier:
         self._model = None
         self._cat_subcat_separator = ', sub:'
         self._string_cat_dict = None
+        self._gateway = JavaGateway()
 
     def build_model_from_data(self, product_data):
         data = product_data.copy()
@@ -44,6 +47,14 @@ class ProductCategoryClassifier:
 
         print 'Removing HTML tags...'
         data.description = data.description.apply(strip_tags)
+
+        print 'Text formalization...'
+        data.description = [self._gateway.formalizeSentence(x) for x in data.description]
+        data.product_name = [self._gateway.formalizeSentence(x) for x in data.product_name]
+
+        print 'Only alphabet...'
+        data.description = [re.sub("[^a-zA-Z]", " ", x) for x in data.description]
+        data.product_name = [re.sub("[^a-zA-Z]", " ", x) for x in data.product_name]
 
         print 'Indexing categories...'
         self._initialize_string_cat_converter(data)
@@ -66,7 +77,10 @@ class ProductCategoryClassifier:
         dtm = self._count_vect.fit_transform(data.description)
 
         print 'Create model...'
-        self._model = svm.SVC(C=8, kernel='linear')
+        self._model = svm.LinearSVC(C=0.5,
+                                    class_weight='balanced',
+                                    random_state=71,
+                                    dual=False)
         self._model.fit(dtm, label)
 
     def classify(self, product_name_description_tupple):
@@ -76,6 +90,14 @@ class ProductCategoryClassifier:
 
         print 'Removing unknown instance HTML tags...'
         product_description = [strip_tags(x) for x in product_description]
+
+        print 'Text formalization...'
+        product_description = [self._gateway.formalizeSentence(x) for x in product_description]
+        product_name = [self._gateway.formalizeSentence(x) for x in product_name]
+
+        print 'Only alphabet'
+        product_description = [re.sub("[^a-zA-Z]", " ", x) for x in product_description]
+        product_name = [re.sub("[^a-zA-Z]", " ", x) for x in product_name]
 
         product_text = [x+'. '+y for x, y in zip(product_name, product_description)]
 
