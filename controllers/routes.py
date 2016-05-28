@@ -1,6 +1,11 @@
+import json
 import math
-from flask import Blueprint, render_template, request
+import random
 
+import numpy
+from flask import Blueprint, render_template, request, session
+
+from classifier.product_classifier import ProductCategoryClassifier
 from models.productmodel import Product
 
 app = Blueprint("routes", __name__)
@@ -56,4 +61,34 @@ def get_product_desc(product_id):
 
 @app.route('/admin')
 def get_admin():
-    return render_template('admin.html')
+    limit = 100
+    product_arr = list()
+    with open("scraper/scrapeddata/tokopedia.json") as json_file:
+        tokopedia_products = json.load(json_file)
+        random.seed(1)
+        sample_idx_list = numpy.random.choice(range(len(tokopedia_products)), size=limit, replace=False)
+        for sample_idx in sample_idx_list:
+            product_json = tokopedia_products[sample_idx]
+            product_arr.append(product_json)
+            product_json['id'] = len(product_arr)
+        session["sample_indices"] = sample_idx_list.tolist()
+    return render_template('admin.html', products=product_arr)
+
+
+@app.route("/admin/result")
+def get_admin_result():
+    sample_indices = session.pop("sample_indices", None)
+    if sample_indices is None:
+        return get_admin()
+    classified_product_arr = list()
+    classifier = ProductCategoryClassifier()
+    classifier.load_model("classifier/data/pc")
+    with open("scraper/scrapeddata/tokopedia.json") as json_file:
+        tokopedia_products = json.load(json_file)
+        for sample_idx in sample_indices:
+            product_json = tokopedia_products[sample_idx]
+            (category, subcategory) = classifier.classify([(product_json["product_name"], product_json["description"])])[0]
+            product_json["pred_category"] = category
+            product_json["pred_subcategory"] = subcategory
+            classified_product_arr.append(product_json)
+    return render_template("admin-res.html", products=classified_product_arr)
