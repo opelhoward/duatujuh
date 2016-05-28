@@ -64,3 +64,6 @@ instance/
 
 # pyenv
 .python-version
+
+# Data scraper
+scraper/scrapeddata
