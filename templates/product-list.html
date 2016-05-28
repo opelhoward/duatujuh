@@ -4,68 +4,25 @@
 {% include 'navbar.html' %}
 
 <br>
-<div class=" row">
-    <div class="col-md-10 col-md-offset-1 text-center wrap_title">
-        <h3>{{ category }}</h3>
-    </div>
-    {#            <div class="row">#}
-    {#                <div class="col-md-offset-1 col-md-10 alert alert-warning ">#}
-    {#                    <div class="col-md-3">#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href=/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href="/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                    </div>#}
-    {#                    <div class="col-md-3">#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href=/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href="/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                    </div>#}
-    {#                    <div class="col-md-3">#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href=/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href="/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                    </div>#}
-    {#                    <div class="col-md-3">#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href=/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                        <a rel="cc:attributionURL" href="/"#}
-    {#                        property="dc:title">Subkategori 1<br></a>#}
-    {#                        <a rel="dc:creator" href="/"#}
-    {#                        property="cc:attributionName">Subkategori 1<br></a>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            </div>#}
-</div>
-<hr>
-<!-- <form role="form" action="" method="post" >
-        <div class="col-md-offset-1 alert alert-success col-md-10">
-            <div class="form-group">
-                    <label for="InputName">Subkategori </label>
-                        <select class="selectpicker" style="color: black">
-                          <option>sub1</option>
-                          <option>sub2</option>
-                          <option>sub3</option>
-                        </select>
+
+<div class="container jumbotron">
+    <div class="col-md-12">
+            <div class="col-md-2 wrap_title">
+                <h3>{{ category }}</h3>
             </div>
-        </div><br>
-    </form> -->
+            <div class="col-md-10 wrap_title">
+                {% for product in products %}
+                <a href="#">
+                    <div class="col-md-3" style="width: 200px;height: 35px;color: midnightblue;">
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> {{ product.subcategory }}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+<hr></hr>
 
 <!-- productList -->
 <div id="productList" class="container">
@@ -73,45 +30,51 @@
         {% for product in products %}
             <a href="{{ url_for("routes.get_product_desc", product_id=product.id) }}">
                 <div class="col-md-3">
-                    <div class="thumbnail col-md-12">
+                    <div class="thumbnail col-md-12" style="width: 248px;height: 340px">
                         <img src="{{ product.image_link }}" alt="..." style="width:500px;height: 150px;border: solid;">
                         <div class="caption">
                             <img class="img-responsive"
                                  src="https://ecs7.tokopedia.net/img/microsite-brand-resource/hires-toped-tokopedia-mascot-new.png"
                                  alt="Generic placeholder image"
                                  style="width:40px;height:40px; border: thin">
-                            <h4>{{ product.product_name }}</h4>
-                            <p><h5>{{ product.subcategory }}</h5>
+                            <h5>{{ product.product_name }}</h5>
+                            <p><h6>{{ product.subcategory }}</h6>
                             <h6>{{ product.price }}</h6></p>
                         </div>
                     </div>
                 </div>
             </a>
         {% endfor %}
+
+        <div class="col-md-12 text-center">
+            <div class="col-md-12">
+                <div class="row"> <!--pagination -->
+                <ul class="pagination">
+                    {% if curr_page_num != 1 %}
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for page_number in range(pagination_start, pagination_end) %}
+                        <li><a href="#">{{ page_number }}</a></li>
+                    {% endfor %}
+                    {% if curr_page_num != number_of_pages %}
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+             </div>
+            </div>
+        </div>
     </div>
 </div> <!--tampilan list produk -->
 
-<div class="row"> <!--pagination -->
-    <ul class="pagination">
-        {% if curr_page_num != 1 %}
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-        {% endif %}
-        {% for page_number in range(pagination_start, pagination_end) %}
-            <li><a href="#">{{ page_number }}</a></li>
-        {% endfor %}
-        {% if curr_page_num != number_of_pages %}
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-        {% endif %}
-    </ul>
-</div>
+
 
 
 {% include 'footer.html' %}
