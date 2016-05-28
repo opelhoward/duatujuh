@@ -3,7 +3,7 @@ import math
 import random
 
 import numpy
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, redirect, url_for
 
 from classifier.product_classifier import ProductCategoryClassifier, strip_tags
 from models import db
@@ -41,7 +41,7 @@ def save_ads():
     product.set_owner(**product_detail)
     db.session.add(product)
     db.session.commit()
-    return get_product_desc(product.id)
+    return redirect(url_for('routes.get_product_desc', product_id=product.id))
 
 
 NUMBER_OF_ITEMS_IN_PAGE = 24
