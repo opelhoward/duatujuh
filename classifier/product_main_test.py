@@ -5,7 +5,7 @@ if __name__ == "__main__":
     db = CsvProductDbConnector("data/olx.csv")
 
     product_classifier = ProductCategoryClassifier()
-    product_classifier.build_model_and_performance_testing(db.sample_data(225000))
+    product_classifier.build_model_and_performance_testing(db.all_data())
     product_classifier.save_model('data/m_imba')
 
     product_classifier = ProductCategoryClassifier()

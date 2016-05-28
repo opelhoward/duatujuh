@@ -5,22 +5,25 @@
 
 <br>
 
-<div class="container jumbotron">
-    <div class="col-md-12">
-        <div class="col-md-2 wrap_title">
-            <h3>{{ category }}</h3>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-12 wrap_title text-center" style="color: black;">
+            <h3><b>{{ category }}</b></h3>
         </div>
-        <div></div>
-        <div class="col-md-10 wrap_title">
+    </div>
+    <div class="col-md-offset-1 col-md-12">
+{#        <div class="col-md-2 wrap_title" style="color: black;">#}
+{#            <h3><b>{{ category }}</b></h3>#}
+{#        </div>#}
+{#        <div class="col-md-10 wrap_title">#}
             {% for subcategory in subcategories %}
                 <a href="{{ url_for("routes.list_products_by_subcategory", category_name=category, subcategory_name=subcategory[0]) }}">
-                    <div class="col-md-3" style="width: 275px;height: 35px;color: midnightblue;">
+                    <div class="col-md-3" style="width: 250px;height: 35px;color: midnightblue;">
                         <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
                         {{ subcategory[0] }}
                     </div>
                 </a>
-            {% endfor %}
-        </div>
+            {% endfor %}      </div>
     </div>
 </div>
 <hr>
@@ -30,10 +33,10 @@
             <a {% if product.company is not none %} href="{{ product.product_url }}" target="_blank"
             {% else %} href="{{ url_for("routes.get_product_desc", product_id=product.id) }}" {% endif %}>
                 <div class="col-md-3">
-                    <div class="thumbnail col-md-12" style="width: 248px;height: 350px">
+                    <div class="thumbnail col-md-12" style="width: 248px;height: 355px">
                         <img src="{{ product.image_link }}" alt="..." style="width:500px;height: 170px;border: solid;">
                         <div class="caption">
-                            <img class="img-responsive logo {{ product.company }}">
+                            <img class="img-rounded {{ product.company }}" style="width:50px;height: 50px">
                             <h5>{{ product.product_name }}</h5>
                             <p><h6>{{ product.subcategory }}</h6>
                             <h6>{{ product.price }}</h6></p>
