@@ -3,41 +3,37 @@
 {% include 'navbar.html' %}
 
 <!-- Admin page -->
-	<div id="contact" class="intro-header">
-		<div class="container">
-			<div class="row">
-			
-			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
-				<h2>Admin Page</h2>
+	 <br>
+    <div class=" row">
+            <div class="col-md-10 col-md-offset-1 text-center wrap_title">
+				<h3>Admin Page</h3>
 			</div>
-			
-			<form role="form" action="" method="post" >
-				<div class="col-md-10 col-md-offset-1 text-center wrap_title">
-					<img  src="{{ url_for("static", filename="img/icon/config.svg") }}"
-                         alt="Generic placeholder image" style="width: 30%">
+    </div>
+    <hr></hr>
+    <div class="container">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 20px"><h4>No.</h4></th>
+                <th><h4>Nama Produk</h4></th>
+                <th><h4>Kategori</h4></th>
+                <th><h4>Subkategori</h4></th>
+                <th><h4>Source</h4></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>**increment 1-N**</th>
+                <th>**isi nama produk**</th>
+                <th>**isi kategori**</th>
+                <th>**isi subkategori**</th>
+                <th><a href="">Link</a></th>
+            </tr>
+        </tbody>
+        </table>
+        <input type="submit" name="submit" id="submit" value="Categorize" class="btn wow tada btn-embossed btn-primary pull-right">
+    </div>
 
-					<div class="row">
-                        <br>
-						<div class="form-group">
-							<div class="col-md-2">
-								<h4 for="InputName">Scraping URL</h4>
-							</div>
-							<div class="col-md-10">
-								<div class="input-group">
-									<input type="text" class="form-control" name="Scraping" id="Scraping" placeholder="URL" required>
-									<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
-                                    <input type="submit" name="submit" id="submit" value="Scrape" class="btn wow tada btn-embossed btn-primary pull-right">
-								</div>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 
 </body>
 
