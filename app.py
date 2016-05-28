@@ -5,7 +5,7 @@ from flask.ext.script import Manager
 
 from classifier.product_classifier import ProductCategoryClassifier
 from classifier.product_database import CsvProductDbConnector
-from controllers import routes
+from controllers import routes, api
 from models import db
 from models.productmodel import Product
 
@@ -72,6 +72,7 @@ def create_learning_model(training_path, model_path):
 @manager.command
 def runserver():
     app.register_blueprint(routes.app)
+    app.register_blueprint(api.app)
     app.run(debug=True)
 
 

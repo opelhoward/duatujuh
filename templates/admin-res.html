@@ -18,7 +18,8 @@
             <th><h4>Nama Produk</h4></th>
             <th><h4>Kategori</h4></th>
             <th><h4>Subkategori</h4></th>
-            <th><h4>Source</h4></th>
+            <th><h4>Prediksi kategori</h4></th>
+            <th><h4>Prediksi subkategori</h4></th>
         </tr>
         </thead>
         <tbody>
@@ -28,14 +29,12 @@
                 <th>{{ product['product_name'] }}</th>
                 <th>{{ product['category'] }}</th>
                 <th>{{ product['subcategory'] }}</th>
-                <th><a href="{{ product['product_url'] }}">Link</a></th>
+                <th>{{ product['pred_category'] }}</th>
+                <th>{{ product['pred_subcategory'] }}</th>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a id="submit" class="btn wow tada btn-embossed btn-primary pull-right" href="{{ url_for("routes.get_admin_result") }}">
-        Categorize
-    </a>
 </div>
 </body>
 </html>
