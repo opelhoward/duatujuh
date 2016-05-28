@@ -70,7 +70,7 @@ class ProductCategoryClassifier:
                                            max_features=None,
                                            vocabulary=None,
                                            binary=False,
-                                           min_df=5,
+                                           min_df=4,
                                            max_df=0.1,
                                            sublinear_tf=True)
         dtm = self._count_vect.fit_transform(data.description)

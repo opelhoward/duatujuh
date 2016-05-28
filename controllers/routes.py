@@ -120,7 +120,7 @@ def get_product_desc(product_id):
 def get_admin():
     limit = 100
     product_arr = list()
-    with open("scraper/scrapeddata2/tokopedia.json") as json_file:
+    with open("scraper/scrapeddata/tokopedia.json") as json_file:
         tokopedia_products = json.load(json_file)
         random.seed(1)
         sample_idx_list = numpy.random.choice(range(len(tokopedia_products)), size=limit, replace=False)
@@ -140,7 +140,7 @@ def get_admin_result():
     classified_product_arr = list()
     classifier = ProductCategoryClassifier()
     classifier.load_model("classifier/data/pc")
-    with open("scraper/scrapeddata2/tokopedia.json") as json_file:
+    with open("scraper/scrapeddata/tokopedia.json") as json_file:
         tokopedia_products = json.load(json_file)
         for sample_idx in sample_indices:
             product_json = tokopedia_products[sample_idx]

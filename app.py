@@ -64,7 +64,7 @@ def create_learning_model(training_path, model_path):
     print("Preparing to learn")
     classifier = ProductCategoryClassifier()
     db = CsvProductDbConnector(training_path)
-    classifier.build_model_from_data(db.sample_data(10000))
+    classifier.build_model_from_data(db.all_data())
     classifier.save_model(model_path)
     print("Finish creating model")
 
