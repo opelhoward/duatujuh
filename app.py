@@ -46,18 +46,12 @@ def insert_to_db(path, company):
             db.session.commit()
         print("Finish adding to database")
 
-@app.route('/deskripsiEcommerce')
-def deskripsiEcommerce():
-    return render_template('deskripsiEcommerce.html')
-
-@app.route('/adminPage')
-def adminPage():
-    return render_template('adminPage.html')
 
 @manager.command
 def runserver():
     app.register_blueprint(routes.app)
     app.run(debug=True)
+
 
 if __name__ == '__main__':
     manager.run()

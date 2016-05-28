@@ -21,3 +21,8 @@ def list_products(category_name):
 @app.route("/product/<product_id>")
 def get_product_desc(product_id):
     return render_template("product-desc.html")
+
+
+@app.route('/admin')
+def get_admin():
+    return render_template('admin.html')
