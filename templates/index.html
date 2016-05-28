@@ -33,108 +33,109 @@
 
         <div class="row">
             <div class="col-sm-12 wow fadeInDown text-center">
-                <a href="/produkList">
+                <a href="{{ url_for("routes.list_products", category_name="Mobil") }}">
                     <div class="col-sm-2 wow fadeInDown text-center" id="Mobil" name="Mobil">
                         <img class="rotate" src="{{ url_for("static", filename="img/icon/large-car.png") }}"
                              alt="Generic placeholder image" style="width:65%">
                         <h3>Mobil</h3>
-                        <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                    </div><!-- /.col-lg-4 -->
+                    </div>
                 </a>
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Motor" name="Motor">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/motorcycle.png") }}"
-                         alt="Generic placeholder image"
-                         style="width:65%">
-                    <h3>Motor</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Properti" name="Properti">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/building.png") }}"
-                         alt="Generic placeholder image"
-                         style="width:65%">
-                    <h3>Properti</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="KeperluanPribadi" name="Keperluan Pribadi">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/heels.png") }}"
-                         alt="Generic placeholder image"
-                         style="width:65%">
-                    <h3>Keperluan Pribadi</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Elektronik&Gadget" name="Elektronik & Gadget">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/laptop.svg") }}"
-                         alt="Generic placeholder image">
-                    <h3>Elektronik & Gadget</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Hobi&Olahraga" name="Hobi & Olahraga">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/football.svg") }}"
-                         alt="Generic placeholder image">
-                    <h3>Hobi & Olahraga</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
+                <a href="{{ url_for("routes.list_products", category_name="Motor") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Motor" name="Motor">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/motorcycle.png") }}"
+                             alt="Generic placeholder image"
+                             style="width:65%">
+                        <h3>Motor</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Properti") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Properti" name="Properti">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/building.png") }}"
+                             alt="Generic placeholder image"
+                             style="width:65%">
+                        <h3>Properti</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Keperluan Pribadi") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="KeperluanPribadi" name="Keperluan Pribadi">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/heels.png") }}"
+                             alt="Generic placeholder image"
+                             style="width:65%">
+                        <h3>Keperluan Pribadi</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Elektronik & Gadget") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Elektronik&Gadget" name="Elektronik & Gadget">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/laptop.svg") }}"
+                             alt="Generic placeholder image">
+                        <h3>Elektronik & Gadget</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Hobi & Olahraga") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Hobi&Olahraga" name="Hobi & Olahraga">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/football.svg") }}"
+                             alt="Generic placeholder image">
+                        <h3>Hobi & Olahraga</h3>
+                    </div>
+                </a>
             </div><!-- /.div 12 col -->
         </div><!-- /.row -->
 
         <div class="row tworow">
-
             <div class="col-sm-12 wow fadeInDown text-center">
+                <a href="{{ url_for("routes.list_products", category_name="Rumah Tangga") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="RumahTangga" name="Rumah Tangga">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/chair.svg") }}"
+                             alt="Generic placeholder image">
+                        <h3>Rumah Tangga</h3>
 
-                <div class="col-sm-2 wow fadeInDown text-center" id="RumahTangga" name="Rumah Tangga">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/chair.svg") }}"
-                         alt="Generic placeholder image">
-                    <h3>Rumah Tangga</h3>
-
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="PerlengkapanBayi&Anak" name="Perlengkapan Bayi & Anak">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/stroller.png") }}"
-                         alt="Generic placeholder image"
-                         style="width:65%">
-                    <h3>Perlengkapan Bayi & Anak</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Kantor&Industri" name="Kantor & Industri">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/clipboard.svg") }}"
-                         alt="Generic placeholder image">
-                    <h3>Kantor & Industri</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Jasa&Lowongan Kerja" name="Jasa & Lowongan Kerja">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/worker.ico") }}"
-                         alt="Generic placeholder image"
-                         style="width:65%">
-                    <h3>Jasa & Lowongan Kerja</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="Sci-fi" name="Sci-fi">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/gift-box.svg") }}"
-                         alt="Generic placeholder image">
-                    <h3>Sci-fi</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
-                <div class="col-sm-2 wow fadeInDown text-center" id="PasarOtobursa" name="Pasar Otobursa">
-                    <img class="rotate" src="{{ url_for("static", filename="img/icon/carnaval.png") }}"
-                         alt="Generic placeholder image"
-                         style="width:65%">
-                    <h3>Pasar Otobursa</h3>
-                    <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-                </div><!-- /.col-lg-4 -->
-
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Perlengkapan Bayi & Anak") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="PerlengkapanBayi&Anak"
+                         name="Perlengkapan Bayi & Anak">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/stroller.png") }}"
+                             alt="Generic placeholder image"
+                             style="width:65%">
+                        <h3>Perlengkapan Bayi & Anak</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Kantor & Industri") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Kantor&Industri"
+                         name="Kantor & Industri">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/clipboard.svg") }}"
+                             alt="Generic placeholder image">
+                        <h3>Kantor & Industri</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Jasa & Lowongan Kerja") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Jasa&Lowongan Kerja"
+                         name="Jasa & Lowongan Kerja">
+                        <img class="rotate" src="{{ url_for("static", filename="img/icon/worker.ico") }}"
+                             alt="Generic placeholder image"
+                             style="width:65%">
+                        <h3>Jasa & Lowongan Kerja</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Sci-fi") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="Sci-fi" name="Sci-fi">
+                        <img class="rotate"
+                             src="{{ url_for("static", filename="img/icon/gift-box.svg") }}"
+                             alt="Generic placeholder image">
+                        <h3>Sci-fi</h3>
+                    </div>
+                </a>
+                <a href="{{ url_for("routes.list_products", category_name="Pasar Otobursa") }}">
+                    <div class="col-sm-2 wow fadeInDown text-center" id="PasarOtobursa"
+                         name="Pasar Otobursa">
+                        <img class="rotate"
+                             src="{{ url_for("static", filename="img/icon/carnaval.png") }}"
+                             alt="Generic placeholder image"
+                             style="width:65%">
+                        <h3>Pasar Otobursa</h3>
+                    </div>
+                </a>
             </div><!-- /.div 12 col -->
-
         </div><!-- /.row -->
     </div>
 </div>
