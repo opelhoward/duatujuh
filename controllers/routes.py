@@ -98,6 +98,7 @@ def list_products_by_subcategory(category_name, subcategory_name):
     number_of_pages = int(math.ceil(number_of_products / NUMBER_OF_ITEMS_IN_PAGE))
     pagination_start = max(page_number - 3, 1)
     pagination_end = min(number_of_pages, pagination_start + 6)
+    print(pagination_start, pagination_end)
     return render_template("product-list.html",
                            category=category_name,
                            subcategories=subcategories,

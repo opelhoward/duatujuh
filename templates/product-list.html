@@ -1,77 +1,73 @@
 {% include 'header.html' %}
 
-<body id="home">
+<body>
 {% include 'navbar.html' %}
-
 <br>
 
 <div class="container ">
     <div class="row">
         <div class="col-md-12 wrap_title text-center" style="color: black;">
-            <h3><b>{{ category }}</b></h3>
+            <h3>{{ category }}</h3>
         </div>
-    </div>
-    <div class="col-md-offset-1 col-md-12">
-{#        <div class="col-md-2 wrap_title" style="color: black;">#}
-{#            <h3><b>{{ category }}</b></h3>#}
-{#        </div>#}
-{#        <div class="col-md-10 wrap_title">#}
-            {% for subcategory in subcategories %}
-                <a href="{{ url_for("routes.list_products_by_subcategory", category_name=category, subcategory_name=subcategory[0]) }}">
-                    <div class="col-md-3" style="width: 250px;height: 35px;color: midnightblue;">
-                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-                        {{ subcategory[0] }}
+        <div class="col-md-12 center-block">
+            <div class="row">
+                {% for subcategory in subcategories %}
+                    <div class="col-sm-4 col-md-3">
+                        <a href="{{ url_for("routes.list_products_by_subcategory", category_name=category, subcategory_name=subcategory[0]) }}">
+                            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            {{ subcategory[0] }}
+                        </a>
                     </div>
-                </a>
-            {% endfor %}      </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 <hr>
 <div id="product-list" class="container">
-    <div class="col-md-12">
+    <div class="row">
         {% for product in products %}
-            <a {% if product.company is not none %} href="{{ product.product_url }}" target="_blank"
-            {% else %} href="{{ url_for("routes.get_product_desc", product_id=product.id) }}" {% endif %}>
-                <div class="col-md-3">
-                    <div class="thumbnail col-md-12" style="width: 248px;height: 355px">
-                        <img src="{{ product.image_link }}" alt="..." style="width:500px;height: 170px;border: solid;">
+            <div class="col-sm-4 col-md-3">
+                <a {% if product.company is not none %} href="{{ product.product_url }}" target="_blank"
+                {% else %} href="{{ url_for("routes.get_product_desc", product_id=product.id) }}" {% endif %}>
+                    <div class="thumbnail" style="width: 248px;height: 355px">
+                        <img src="{{ product.image_link }}" style="width:100%;height: 170px;border: solid;">
                         <div class="caption">
-                            <img class="img-rounded {{ product.company }}" style="width:50px;height: 50px">
                             <h5>{{ product.product_name }}</h5>
-                            <p><h6>{{ product.subcategory }}</h6>
-                            <h6>{{ product.price }}</h6></p>
+                            <h6>{{ product.subcategory }}</h6>
+                            <h6>{{ product.price }}</h6>
                         </div>
                     </div>
-                </div>
-            </a>
-        {% endfor %}
-
-        <div class="col-md-12 text-center">
-            <div class="col-md-12">
-                <div class="row"> <!--pagination -->
-                    <ul class="pagination">
-                        {% if curr_page_num != 1 %}
-                            <li>
-                                <a href="{{ request.path }}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% for page_number in range(pagination_start, pagination_end) %}
-                            <li><a href="{{ request.path }}?page={{ page_number }}">{{ page_number }}</a></li>
-                        {% endfor %}
-                        {% if curr_page_num != number_of_pages %}
-                            <li>
-                                <a href="{{ request.path }}?page={{ number_of_pages }}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
+                    <div class="{{ product.company }}"
+                         style="width:50px;height: 50px; position: absolute; left: 0; top: 0"></div>
+                </a>
             </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <ul class="pagination">
+                {% if curr_page_num != 1 %}
+                    <li>
+                        <a href="{{ request.path }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for page_number in range(pagination_start, pagination_end + 1) %}
+                    <li><a href="{{ request.path }}?page={{ page_number }}">{{ page_number }}</a></li>
+                {% endfor %}
+                {% if curr_page_num != number_of_pages %}
+                    <li>
+                        <a href="{{ request.path }}?page={{ number_of_pages }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
+</div>
 </div>
 
 {% include 'footer.html' %}
