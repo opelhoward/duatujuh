@@ -1,16 +1,13 @@
-import numpy as np
 import re
+import time
 from HTMLParser import HTMLParser
 
-import time
+from py4j.java_gateway import JavaGateway
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
-from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.externals import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_selection import SelectFromModel
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
-from py4j.java_gateway import JavaGateway
 
 
 class MLStripper(HTMLParser):
@@ -39,7 +36,7 @@ class ProductCategoryClassifier:
         self._model = None
         self._cat_subcat_separator = ', sub:'
         self._string_cat_dict = None
-        self._stopwords = self._get_stopwords('stopwords.txt')
+        self._stopwords = self._get_stopwords('classifier/stopwords.txt')
         self._gateway = JavaGateway()
 
     def build_model_from_data(self, product_data):
@@ -171,26 +168,6 @@ class ProductCategoryClassifier:
             for line in input_file:
                 stopwords.append(line.rstrip())
         return stopwords
-
-    @staticmethod
-    def __feature_selection(product_text, target):
-        count_vectorizer = TfidfVectorizer(ngram_range=(1, 2),
-                                           max_features=None,
-                                           vocabulary=None,
-                                           binary=False,
-                                           min_df=2,
-                                           max_df=0.1,
-                                           sublinear_tf=True)
-        dtm = count_vectorizer.fit_transform(product_text)
-        print 'DTM size ' + str(dtm.get_shape())
-
-        clf = ExtraTreesClassifier(n_estimators=50, random_state=71)
-        clf = clf.fit(dtm, target)
-        select_model = SelectFromModel(clf, prefit=True)
-
-        selected_feature = select_model.get_support()
-        selected_vocab = np.asarray(count_vectorizer.get_feature_names())[selected_feature]
-        return selected_vocab
 
     @staticmethod
     def _replace_none_with_value(value, value_if_none):
