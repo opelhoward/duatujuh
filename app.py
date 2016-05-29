@@ -3,6 +3,7 @@ import json
 from flask import Flask
 from flask.ext.script import Manager
 
+import globalvars
 from classifier.product_classifier import ProductCategoryClassifier
 from classifier.product_database import CsvProductDbConnector
 from controllers import routes, api
@@ -71,6 +72,7 @@ def create_learning_model(training_path, model_path):
 
 @manager.command
 def runserver():
+    globalvars.init("classifier/data/pc")
     app.register_blueprint(routes.app)
     app.register_blueprint(api.app)
     app.run(debug=True)

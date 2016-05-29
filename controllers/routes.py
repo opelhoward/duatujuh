@@ -5,6 +5,7 @@ import random
 import numpy
 from flask import Blueprint, render_template, request, session, redirect, url_for
 
+import globalvars
 from classifier.product_classifier import ProductCategoryClassifier, strip_tags
 from models import db
 from models.productmodel import Product
@@ -139,8 +140,7 @@ def get_admin_result():
     if sample_indices is None:
         return get_admin()
     classified_product_arr = list()
-    classifier = ProductCategoryClassifier()
-    classifier.load_model("classifier/data/pc")
+    classifier = globalvars.cls
     with open("scraper/scrapeddata/tokopedia.json") as json_file:
         tokopedia_products = json.load(json_file)
         for sample_idx in sample_indices:
