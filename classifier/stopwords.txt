@@ -1,0 +1,504 @@
+utara
+selatan
+barat
+timur
+tenggara
+kota
+kalimantan tengah
+kalteng
+kalimantan selatan
+kalsel
+gorontalo
+yogyakarta
+yogya
+jogja
+lampung
+sulawesi tenggara
+banten
+kalimantan timur
+kaltim
+aceh
+kepulauan riau
+riau
+sumatera barat
+sulawesi utara
+sulut
+sulawesi barat
+sulbar
+sulawesi tengah
+sulteng
+jawa timur
+jatim
+irian jaya barat
+irian jaya
+nusa tenggara barat
+ntb
+sumatera selatan
+sumsel
+kalimantan barat
+kalbar
+sumatera utara
+sumut
+bengkulu
+jawa tengah
+jateng
+maluku utara
+riau
+nusa tenggara timur
+ntt
+bali
+jakarta raya
+jkt
+jakarta
+jawa barat
+jabar
+kalimantan utara
+maluku
+papua
+jambi
+sulawesi selatan
+sulsel
+sukabumi
+gunung kidul
+sinjai
+pinrang
+rejang lebong
+mataram
+padang pariaman
+aceh tengah
+tapin
+toli
+bukittinggi
+lebak
+surakarta
+hulu sungai selatan
+karanganyar
+belitung
+jeneponto
+baubau
+buol
+deli serdang
+denpasar
+bangka tengah
+kota bogor
+sumedang
+dumai
+nias selatan
+lingga
+belitung timur
+flores timur
+palopo
+palembang
+kotawaringin barat
+halmahera timur
+hulu sungai tengah
+indramayu
+batang
+mamuju
+bengkalis
+nias
+bangli
+pidie
+bangka
+lampung timur
+lamtim
+tolikara
+lampung selatan
+lamsel
+ende
+kepulauan sula
+soppeng
+wajo
+sragen
+pulang pisau
+kota jayapura
+buleleng
+indragiri hilir
+kota kendari
+tomohon
+merauke
+batang hari
+maluku tenggara
+landak
+probolinggo
+batam
+muna
+banjar baru
+tabalong
+gunung mas
+bekasi
+aceh barat daya
+muara enim
+indragiri hulu
+karo
+gianyar
+sumenep
+sleman
+serang
+karimun
+aceh selatan
+situbondo
+maluku tenggara barat
+sidenreng rappang
+kota sukabumi
+kutai timur
+tanah laut
+kulon progo
+barito timur
+kepulauan sangihe talaud
+tapanuli tengah
+sekadau
+halmahera barat
+bojonegoro
+nagan raya
+pemalang
+bitung
+paniai
+bangka barat
+kota sorong
+barito kuala
+tanah bumbu
+konawe selatan
+gayo lues
+sawahlunto
+lamandau
+wakatobi
+mukomuko
+musi rawas
+ponorogo
+barito utara
+lake toba
+toba
+blitar
+sumbawa
+kota cirebon
+sukoharjo
+ogan komering ulu selatan
+pariaman
+gorontalo
+alor
+sikka
+kerinci
+sumba timur
+lahat
+sarmi
+seram bagian barat
+balangan
+bandung
+bdg
+mdn
+tasikmalaya
+palu
+kutai kartanegara
+seram bagian timur
+jember
+labuhan batu
+lampung barat
+malang
+balikpapan
+sawah lunto
+bangkalan
+bondowoso
+maros
+minahasa utara
+garut
+solok
+tulang bawang
+tebing tinggi
+kota bekasi
+tidore kepulauan
+tanjung jabung timur
+nunukan
+rote ndao
+bener meriah
+kota tegal
+metro
+muaro jambi
+manggarai
+banggai kepulauan
+admin. kepulauan seribu
+cilacap
+cianjur
+ternate
+katingan
+yogyakarta
+timor tengah selatan
+enrekang
+manado
+solok selatan
+barito selatan
+agam
+bengkulu selatan
+rokan hilir
+rokan hulu
+kota tangerang
+depok
+kepulauan riau
+musi banyu asin
+sintang
+kota bandung
+ketapang
+bulukumba
+waropen
+kuantan singingi
+bantaeng
+selayar
+bombana
+kuningan
+kutai barat
+lombok tengah
+payakumbuh
+jakarta selatan
+jaksel
+kota tasikmalaya
+biak numfor
+jayawijaya
+dharmasraya
+purbalingga
+bone bolango
+pekalongan
+jembrana
+padang panjang
+pasuruan
+halmahera utara
+ciamis
+jombang
+tanjung jabung barat
+dairi
+langsa
+trenggalek
+bolaang mongondow
+lombok timur
+kapuas
+samosir
+kepulauan aru
+seluma
+malinau
+pematang siantar
+siantar
+kampar
+bungo
+barru
+badung
+pasaman barat
+sumbawa barat
+ogan komering ulu
+serdang bedagai
+magelang
+tabanan
+morowali
+luwu
+sumba barat
+grobogan
+pagar alam
+polewali mamasa
+ogan komering ulu timur
+kepahiang
+klaten
+sukamara
+way kanan
+jakarta utara
+jakut
+jayapura
+parigi moutong
+lima puluh koto
+siak
+sanggau
+luwu timur
+semarang
+sambas
+aceh jaya
+pohuwato
+murung raya
+demak
+jakarta timur
+jaktim
+sarolangun
+donggala
+kudus
+halmahera tengah
+halmahera
+gowa
+timor tengah utara
+ngawi
+lhokseumawe
+humbang hasundutan
+ngada
+simalungun
+cilegon
+hulu sungai utara
+cirebon
+keerom
+supiori
+pangkal pinang
+jambi
+lumajang
+subang
+kapuas hulu
+aceh besar
+kolaka
+asahan
+tulungagung
+bulongan
+banyuasin
+ogan ilir
+sabang
+tanggamus
+padang sidempuan
+bireuen
+lebong
+tanjung pinang
+mojokerto
+pelalawan
+manokwari
+teluk wondama
+simeulue
+madiun
+boyolali
+banyuwangi
+kebumen
+pasaman
+prabumulih
+majene
+cimahi
+maluku tengah
+mandailing natal
+kendari
+tegal
+banda aceh
+gresik
+lombok barat
+kolaka utara
+berau
+buru
+boven digoel
+kotawaringin timur
+buton
+purwakarta
+kota magelang
+yapen waropen
+minahasa
+ogan komering ilir
+samarinda
+langkat
+ambon
+makassar
+mamasa
+kepulauan mentawai
+klungkung
+pekan baru
+kota solok
+lampung tengah
+magetan
+surabaya
+wonogiri
+manggarai barat
+bone
+medan
+mdn
+pontianak
+pandeglang
+banjar
+wonosobo
+palangka raya
+sibolga
+salatiga
+lembata
+karawang
+banggai
+tanah datar
+boalemo
+merangin
+temanggung
+lubuk linggau
+jepara
+aceh barat
+banyumas
+purwokerto
+pare-pare
+tanjung balai
+penajam paser utara
+pasir
+tana toraja
+mappi
+binjai
+natuna
+jakarta barat
+jakbar
+pakpak bharat
+brebes
+sampang
+batu
+bontang
+lampung utara
+bengkayang
+halmahera selatan
+tangerang
+sidoarjo
+kota baru
+purworejo
+nabire
+fak-fak
+pesisir selatan
+singkawang
+asmat
+yahukimo
+bangka selatan
+pegunungan bintang
+minahasa selatan
+kediri
+tapanuli selatan
+banjarnegara
+pangkajene kepulauan
+bogor
+majalengka
+puncak jaya
+aceh singkil
+dompu
+sorong selatan
+nganjuk
+mamuju utara
+aceh tamiang
+bima
+melawi
+banjarmasin
+belu
+tojo una-una
+sangihe talaud
+sorong
+rembang
+blitar
+aceh timur
+tebo
+seruyan
+padang
+kaimana
+bantul
+toba samosir
+kota semarang
+teluk bintuni
+kupang
+poso
+kendal
+tuban
+raja ampat
+pamekasan
+takalar
+bengkulu
+mimika
+bengkulu utara
+tarakan
+tapanuli utara
+karang asem
+aceh tenggara
+kaur
+pacitan
+blora
+kota pekalongan
+pati
+luwu utara
+aceh utara
+jakarta pusat
+jakpus
+lamongan
+bandar lampung
