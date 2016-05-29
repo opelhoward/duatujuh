@@ -39,6 +39,7 @@ class ProductCategoryClassifier:
         self._model = None
         self._cat_subcat_separator = ', sub:'
         self._string_cat_dict = None
+        self._stopwords = self._get_stopwords('stopwords.txt')
         self._gateway = JavaGateway()
 
     def build_model_from_data(self, product_data):
@@ -72,7 +73,8 @@ class ProductCategoryClassifier:
                                            binary=False,
                                            min_df=4,
                                            max_df=0.1,
-                                           sublinear_tf=True)
+                                           sublinear_tf=True,
+                                           stop_words=self._stopwords)
         dtm = self._count_vect.fit_transform(data.description)
         print 'DTM size ' + str(dtm.get_shape())
 
@@ -161,6 +163,14 @@ class ProductCategoryClassifier:
 
     def _category_string_tuple(self, category_string):
         return self._string_cat_dict[category_string]
+
+    @staticmethod
+    def _get_stopwords(file_path):
+        stopwords = []
+        with open(file_path, "r") as input_file:
+            for line in input_file:
+                stopwords.append(line.rstrip())
+        return stopwords
 
     @staticmethod
     def __feature_selection(product_text, target):
