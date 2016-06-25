@@ -110,7 +110,6 @@ kepulauan sula
 soppeng
 wajo
 sragen
-pulang pisau
 kota jayapura
 buleleng
 indragiri hilir
@@ -188,7 +187,6 @@ bandung
 bdg
 mdn
 tasikmalaya
-palu
 kutai kartanegara
 seram bagian timur
 jember
@@ -212,7 +210,6 @@ nunukan
 rote ndao
 bener meriah
 kota tegal
-metro
 muaro jambi
 manggarai
 banggai kepulauan
@@ -323,7 +320,6 @@ timor tengah utara
 ngawi
 lhokseumawe
 humbang hasundutan
-ngada
 simalungun
 cilegon
 hulu sungai utara
@@ -370,7 +366,6 @@ gresik
 lombok barat
 kolaka utara
 berau
-buru
 boven digoel
 kotawaringin timur
 buton
@@ -394,7 +389,6 @@ surabaya
 wonogiri
 manggarai barat
 bone
-medan
 mdn
 pontianak
 pandeglang
@@ -406,7 +400,6 @@ salatiga
 lembata
 karawang
 banggai
-tanah datar
 boalemo
 merangin
 temanggung
@@ -418,7 +411,6 @@ purwokerto
 pare-pare
 tanjung balai
 penajam paser utara
-pasir
 tana toraja
 mappi
 binjai
@@ -428,7 +420,6 @@ jakbar
 pakpak bharat
 brebes
 sampang
-batu
 bontang
 lampung utara
 bengkayang
