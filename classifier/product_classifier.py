@@ -58,6 +58,8 @@ class ProductCategoryClassifier:
         data.description = [re.sub("[^a-zA-Z]", " ", x) for x in data.description]
         data.product_name = [re.sub("[^a-zA-Z]", " ", x) for x in data.product_name]
 
+        product_text = [x+'. '+y for x, y in zip(data.product_name, data.description)]
+
         print 'Indexing categories...'
         self._initialize_string_cat_converter(data)
 
@@ -72,7 +74,7 @@ class ProductCategoryClassifier:
                                            max_df=0.1,
                                            sublinear_tf=True,
                                            stop_words=self._stopwords)
-        dtm = self._count_vect.fit_transform(data.description)
+        dtm = self._count_vect.fit_transform(product_text)
         print 'DTM size ' + str(dtm.get_shape())
 
         print 'Create model...'
