@@ -5,7 +5,7 @@ if __name__ == "__main__":
     db = CsvProductDbConnector("classifier/data/olx.csv")
 
     product_classifier = ProductCategoryClassifier()
-    product_classifier.build_model_and_performance_testing(db.sample_data(50000))
+    product_classifier.build_model_and_performance_testing(db.sample_data(50000).fillna(''))
 
     product_text = [('Anting anting untuk perempuan', 'Aksesoris ini dapat membuat anda tampil lebih cantik'),
                     ('Ban bekas serap goodyear', 'ban ini sangat awet dan tahan lama'),

@@ -1,9 +1,3 @@
-utara
-selatan
-barat
-timur
-tenggara
-kota
 kalimantan tengah
 kalteng
 kalimantan selatan
@@ -69,11 +63,9 @@ aceh tengah
 tapin
 toli
 bukittinggi
-lebak
 surakarta
 hulu sungai selatan
 karanganyar
-belitung
 jeneponto
 baubau
 buol
@@ -93,13 +85,11 @@ kotawaringin barat
 halmahera timur
 hulu sungai tengah
 indramayu
-batang
 mamuju
 bengkalis
 nias
 bangli
 pidie
-bangka
 lampung timur
 lamtim
 tolikara
@@ -118,7 +108,6 @@ tomohon
 merauke
 batang hari
 maluku tenggara
-landak
 probolinggo
 batam
 muna
@@ -133,15 +122,12 @@ karo
 gianyar
 sumenep
 sleman
-serang
-karimun
 aceh selatan
 situbondo
 maluku tenggara barat
 sidenreng rappang
 kota sukabumi
 kutai timur
-tanah laut
 kulon progo
 barito timur
 kepulauan sangihe talaud
@@ -179,7 +165,6 @@ alor
 sikka
 kerinci
 sumba timur
-lahat
 sarmi
 seram bagian barat
 balangan
@@ -192,17 +177,12 @@ seram bagian timur
 jember
 labuhan batu
 lampung barat
-malang
 balikpapan
 sawah lunto
 bangkalan
 bondowoso
 maros
 minahasa utara
-garut
-solok
-tulang bawang
-tebing tinggi
 kota bekasi
 tidore kepulauan
 tanjung jabung timur
@@ -213,7 +193,7 @@ kota tegal
 muaro jambi
 manggarai
 banggai kepulauan
-admin. kepulauan seribu
+kepulauan seribu
 cilacap
 cianjur
 ternate
@@ -224,7 +204,6 @@ enrekang
 manado
 solok selatan
 barito selatan
-agam
 bengkulu selatan
 rokan hilir
 rokan hulu
@@ -241,7 +220,6 @@ kuantan singingi
 bantaeng
 selayar
 bombana
-kuningan
 kutai barat
 lombok tengah
 payakumbuh
@@ -276,7 +254,6 @@ siantar
 kampar
 bungo
 barru
-badung
 pasaman barat
 sumbawa barat
 ogan komering ulu
@@ -287,7 +264,6 @@ morowali
 luwu
 sumba barat
 grobogan
-pagar alam
 polewali mamasa
 ogan komering ulu timur
 kepahiang
@@ -299,7 +275,6 @@ jakut
 jayapura
 parigi moutong
 lima puluh koto
-siak
 sanggau
 luwu timur
 semarang
@@ -368,7 +343,6 @@ kolaka utara
 berau
 boven digoel
 kotawaringin timur
-buton
 purwakarta
 kota magelang
 yapen waropen
@@ -376,19 +350,17 @@ minahasa
 ogan komering ilir
 samarinda
 langkat
-ambon
 makassar
 mamasa
 kepulauan mentawai
 klungkung
-pekan baru
+pekanbaru
 kota solok
 lampung tengah
 magetan
 surabaya
 wonogiri
 manggarai barat
-bone
 mdn
 pontianak
 pandeglang
@@ -408,7 +380,6 @@ jepara
 aceh barat
 banyumas
 purwokerto
-pare-pare
 tanjung balai
 penajam paser utara
 tana toraja
@@ -462,7 +433,6 @@ blitar
 aceh timur
 tebo
 seruyan
-padang
 kaimana
 bantul
 toba samosir

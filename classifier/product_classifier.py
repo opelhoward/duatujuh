@@ -5,9 +5,12 @@ from HTMLParser import HTMLParser
 from py4j.java_gateway import JavaGateway
 from sklearn import svm
 from sklearn.cross_validation import train_test_split
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.externals import joblib
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
+from sklearn.naive_bayes import MultinomialNB
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 
 class MLStripper(HTMLParser):
@@ -36,23 +39,20 @@ class ProductCategoryClassifier:
         self._model = None
         self._cat_subcat_separator = ', sub:'
         self._string_cat_dict = None
-        self._stopwords = self._get_stopwords('classifier/stopwords.txt')
+        self._stopwords = self._get_stopwords('classifier/stopwords2.txt')
         self._gateway = JavaGateway()
 
     def build_model_from_data(self, product_data):
         t0 = time.time()
 
         data = product_data.copy()
-        print 'Replace NA values...'
-        data.description = data.description.fillna('')
-        data.product_name = data.product_name.fillna('')
 
         print 'Removing HTML tags...'
         data.description = data.description.apply(strip_tags)
 
         print 'Text formalization...'
-        data.description = [self._gateway.formalizeSentence(x) for x in data.description]
-        data.product_name = [self._gateway.formalizeSentence(x) for x in data.product_name]
+        # data.description = [self._gateway.formalizeSentence(x) for x in data.description]
+        # data.product_name = [self._gateway.formalizeSentence(x) for x in data.product_name]
 
         print 'Only alphabet...'
         data.description = [re.sub("[^a-zA-Z]", " ", x) for x in data.description]
@@ -66,22 +66,31 @@ class ProductCategoryClassifier:
         label = [self._category_tuple_string((x, y)) for x, y in data[['category', 'subcategory']].values]
 
         print 'Create document term matrix...'
+        # self._count_vect = TfidfVectorizer(ngram_range=(1, 2),
+        #                                    max_features=None,
+        #                                    vocabulary=None,
+        #                                    binary=False,
+        #                                    min_df=4,
+        #                                    max_df=0.1,
+        #                                    sublinear_tf=True,
+        #                                    stop_words=self._stopwords)
         self._count_vect = TfidfVectorizer(ngram_range=(1, 2),
-                                           max_features=None,
-                                           vocabulary=None,
-                                           binary=False,
-                                           min_df=4,
-                                           max_df=0.1,
-                                           sublinear_tf=True,
+                                           use_idf=True,
+                                           sublinear_tf=False,
+                                           min_df=2,
+                                           max_df=0.15,
                                            stop_words=self._stopwords)
+
         dtm = self._count_vect.fit_transform(product_text)
         print 'DTM size ' + str(dtm.get_shape())
 
         print 'Create model...'
-        self._model = svm.LinearSVC(C=0.5,
-                                    class_weight='balanced',
-                                    random_state=71,
-                                    dual=True)
+        self._model = svm.LinearSVC(C=1,
+                                    random_state=71)
+        # self._model = RandomForestClassifier(n_estimators=100,
+        #                                      min_samples_leaf=5,
+        #                                      random_state=3)
+        # self._model = MultinomialNB(alpha=0.0009765625)
         self._model.fit(dtm, label)
         t1 = time.time()
         print 'Model created in ' + str(t1-t0)
@@ -95,8 +104,8 @@ class ProductCategoryClassifier:
         product_description = [strip_tags(x) for x in product_description]
 
         print 'Text formalization...'
-        product_description = [self._gateway.formalizeSentence(x) for x in product_description]
-        product_name = [self._gateway.formalizeSentence(x) for x in product_name]
+        # product_description = [self._gateway.formalizeSentence(x) for x in product_description]
+        # product_name = [self._gateway.formalizeSentence(x) for x in product_name]
 
         print 'Only alphabet'
         product_description = [re.sub("[^a-zA-Z]", " ", x) for x in product_description]
@@ -125,30 +134,6 @@ class ProductCategoryClassifier:
         self._count_vect = persistent_dict['count_vect']
         self._string_cat_dict = persistent_dict['string_cat_dict']
         print 'Loaded.'
-
-    def build_model_and_performance_testing(self, product_data):
-
-        label = [self._category_tuple_string((x, y)) for x, y in product_data[['category', 'subcategory']].values]
-        data_train, data_test = train_test_split(product_data, stratify=label, test_size=0.3, random_state=71)
-        self.build_model_from_data(data_train)
-
-        description = data_test.description.fillna('')
-        product_name = data_test.product_name.fillna('')
-
-        print 'Start classify for testing'
-        y_pred = self.classify(zip(product_name, description))
-        y_pred = [self._category_tuple_string(x) for x in y_pred]
-        y_true = [self._category_tuple_string(tuple(x)) for x in data_test[['category', 'subcategory']].values]
-        print '############# TEST RESULT #############'
-        print 'Accuracy Score'
-        print accuracy_score(y_true=y_true, y_pred=y_pred)
-        print 'F1 Score'
-        print f1_score(y_true=y_true, y_pred=y_pred, average='macro')
-        print 'Precision Score'
-        print precision_score(y_true=y_true, y_pred=y_pred, average='macro')
-        print 'Recall Score'
-        print recall_score(y_true=y_true, y_pred=y_pred, average='macro')
-        print '#######################################'
 
     def _initialize_string_cat_converter(self, data):
         full_category = data[['category', 'subcategory']]
